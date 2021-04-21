@@ -11,15 +11,15 @@ The CAN message structure is as follows:
 
 | CAN ID      | DLC         | Byte 7      | Byte 6      | Byte 5      | Byte 4      | Byte 3      | Byte 2      | Byte 1      | Byte 0      |
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| 0x696       | 0x08        | 0x00        | 0x00        | 0x00        | 0x00        | 0x00        | 0x00        | 0x00        | 0x00        |
+| 0x696       | 0x08        | 0x00        | 0x00        | 0x02        | 0x20        | 0x34        | 0x15        | 0x32        | 0x02        |
 | --          | 8 data bytes| Error       | Pressure B3 | Pressure B2 | Pressure B1 | Pressure B0 | Temp        | Depth MSB   | Depth LSB   |
 
-| Data        | Type        | Scale       | Range       | Unit        | Example     |
-| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| Pressure    | uint32      | 10          | 0...30000   | mbar        | 0.0 mbar    |
-| Temperature |  int8       | 1           | -20...85    | deg C       | 0 deg C     |
-| Depth       | uint16      | 100         | 0...300     | m           | 0 m         |
-| Error       | uint8       | n/a         | n/a         | n/a         | Valid Data  |
+| Data        | Type        | Scale       | Range       | Unit        | Example (hex) | Example (dec) | Example (scaled)        |
+| ----------- | ----------- | ----------- | ----------- | ----------- | ------------- | ------------- | ----------------------- |
+| Pressure    | uint32      | 10          | 0...30000.0 | mbar        | 0x00022034    | 139316        | 13931.6 mbar (absolute) |
+| Temperature |  int8       | 1           | -20...85    | deg C       | 0x15          | 21            | 21 deg C                |
+| Depth       | uint16      | 100         | 0...300.00  | m           | 0x3202        | 12802         | 128.02 m                |
+| Error       | uint8       | n/a         | n/a         | n/a         | n/a           | n/a           | Valid Data              |
 
 Error codes and their meanings:
 
