@@ -26,3 +26,5 @@ Error codes and their meanings:
 | Error code  | Meaning     |
 | ----------- | ----------- |
 | 0           | Valid data  |
+| 1           | Sensor init fail  |
+| 2           | Data out of bounds  |
