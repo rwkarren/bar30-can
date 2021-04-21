@@ -48,7 +48,10 @@ int main()
         // check for out of range measurements
         if (pressure < 0 || pressure > 30000.0f || depth < 0.0f || depth > 300.0f || temp < -25.0f || temp > 85.0f) {
             error = 2;
+        } else if (error != 1) {
+            error = 0;
         }
+
 
         // printf("Pressure: %.1f mbar\n", pressure);
         // printf("Temp: %.0f deg C\n", temp);
