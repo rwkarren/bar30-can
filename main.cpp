@@ -32,8 +32,8 @@ int main()
 {
     int rate_ms = 200;
     int can_id  = 0x696;
+    
     int error   = 0;
-
     if (!init()) { // bar30 init failed
         // printf("Bar30 init failed!\n");
         error = 1;
@@ -73,7 +73,9 @@ int main()
         canMsg.data[7]  = error;
 
         can.sendMessage(&canMsg);
-        sleep_ms(rate_ms);
+
+        int rate_offset_ms = 41; // accounts for 40 ms read() function and 1ms for everything else.
+        sleep_ms(rate_ms - rate_offset_ms);
     }
 }
 
