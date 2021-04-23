@@ -3,11 +3,12 @@
         {
             "name": "Pico",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${env:PICO_SDK_PATH}/**"
+                "${workspaceFolder}/**"//,
+                // "${env:PICO_SDK_PATH}/**"
             ],
             "defines": [],
-            "compilerPath": "/usr/local/bin/arm-none-eabi-gcc-9.2.1",
+            // "compilerPath": "/usr/local/bin/arm-none-eabi-gcc-9.2.1",
+            "compilerPath": "arm-none-eabi-gcc-10.2.1.exe",
             "cStandard": "gnu17",
             "cppStandard": "gnu++14",
             "intelliSenseMode": "gcc-arm",
