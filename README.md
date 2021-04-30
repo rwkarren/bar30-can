@@ -7,12 +7,12 @@ The CAN message ID is set by default as 0x696, but can be changed.
 
 By default, the microcontroller will read and transmit values at 5Hz (or every 200ms), but that can be changed. The Bar30 pressure sensor cannot read more frequently than every 40ms.
 
-The CAN message structure is as follows:
+The CAN message structure is as follows, with numbers sent **least significant byte first**.
 
-| CAN ID      | DLC         | Byte 7      | Byte 6      | Byte 5      | Byte 4      | Byte 3      | Byte 2      | Byte 1      | Byte 0      |
+| CAN ID      | DLC         | Byte 0      | Byte 1      | Byte 2      | Byte 3      | Byte 4      | Byte 5      | Byte 6      | Byte 7      |
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| 0x696       | 0x08        | 0x00        | 0x00        | 0x02        | 0x20        | 0x34        | 0x15        | 0x32        | 0x02        |
-| --          | 8 data bytes| Error       | Pressure B3 | Pressure B2 | Pressure B1 | Pressure B0 | Temp        | Depth MSB   | Depth LSB   |
+| 0x696       | 0x08        | 0x02        | 0x32        | 0x15        | 0x34        | 0x50        | 0x02        | 0x00        | 0x00        |
+| --          | 8 data bytes| Depth LSB   | Depth MSB   | Temperature | Pressure B0 | Pressure B1 | Pressure B2 | Pressure B3 | Error       |
 
 | Data        | Type        | Scale       | Range       | Unit        | Example (hex) | Example (dec) | Example (scaled)        |
 | ----------- | ----------- | ----------- | ----------- | ----------- | ------------- | ------------- | ----------------------- |
